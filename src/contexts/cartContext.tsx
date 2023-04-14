@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from "react";
+import { ReactNode, createContext, useState } from 'react'
 
 export interface IProduct {
   id: string
@@ -31,19 +31,27 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
   }, 0)
 
   function addToCart(product: IProduct) {
-    setCartItems(state => [...state, product])
+    setCartItems((state) => [...state, product])
   }
 
   function checkIfItemAlredyExists(productId: string) {
-    return cartItems.some(product => product.id === productId)
+    return cartItems.some((product) => product.id === productId)
   }
 
   function removeCartItem(productId: string) {
-    setCartItems((state) => state.filter(item => item.id !== productId))
+    setCartItems((state) => state.filter((item) => item.id !== productId))
   }
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, checkIfItemAlredyExists, removeCartItem, cartTotal }}>
+    <CartContext.Provider
+      value={{
+        cartItems,
+        addToCart,
+        checkIfItemAlredyExists,
+        removeCartItem,
+        cartTotal,
+      }}
+    >
       {children}
     </CartContext.Provider>
   )

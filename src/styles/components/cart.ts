@@ -1,5 +1,5 @@
-import { styled } from "..";
-import * as Dialog from '@radix-ui/react-dialog';
+import { styled } from '..'
+import * as Dialog from '@radix-ui/react-dialog'
 
 export const CartContent = styled(Dialog.Content, {
   position: 'fixed',
@@ -17,7 +17,7 @@ export const CartContent = styled(Dialog.Content, {
   h2: {
     fontSize: '$lg',
     color: '$gray100',
-    marginBottom: '2rem'
+    marginBottom: '2rem',
   },
 
   '> section': {
@@ -26,7 +26,7 @@ export const CartContent = styled(Dialog.Content, {
     gap: '1.5rem',
     flex: 1,
     overflowY: 'auto',
-  }
+  },
 })
 
 export const CartClose = styled(Dialog.Close, {
@@ -37,11 +37,11 @@ export const CartClose = styled(Dialog.Close, {
   top: '1.75rem',
   right: '1.75rem',
   cursor: 'pointer',
-  
+
   '&:hover': {
     transition: 'all 0.2s',
     color: '$gray700',
-  }
+  },
 })
 
 export const CartProduct = styled('div', {
@@ -62,8 +62,8 @@ export const CartProductImage = styled('div', {
   borderRadius: 8,
 
   img: {
-    objectFit: 'cover'
-  }
+    objectFit: 'cover',
+  },
 })
 
 export const CartProductDetails = styled('div', {
@@ -93,8 +93,8 @@ export const CartProductDetails = styled('div', {
     '&:hover': {
       transition: 'all 0.2s',
       color: '$green300',
-    }
-  }
+    },
+  },
 })
 
 export const CartFinalization = styled('div', {
@@ -122,15 +122,15 @@ export const CartFinalization = styled('div', {
         fontWeight: 'bold',
 
         span: {
-          fontSize: '$md'
+          fontSize: '$md',
         },
 
         p: {
           fontSize: '$xl',
           color: '$gray100',
-        }
-      }
-    }
+        },
+      },
+    },
   },
 
   button: {
@@ -152,6 +152,6 @@ export const CartFinalization = styled('div', {
     '&:not(:disabled):hover': {
       transition: 'all 0.2s',
       background: '$green300',
-    }
-  }
+    },
+  },
 })

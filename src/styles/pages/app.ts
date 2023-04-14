@@ -1,4 +1,4 @@
-import { styled } from "..";
+import { styled } from '..'
 
 export const Container = styled('div', {
   display: 'flex',
@@ -19,6 +19,6 @@ export const HeaderContainer = styled('header', {
   alignItems: 'center',
 
   button: {
-    marginLeft: 'auto'
-  }
+    marginLeft: 'auto',
+  },
 })

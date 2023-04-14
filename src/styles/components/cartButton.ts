@@ -1,4 +1,4 @@
-import { styled } from "..";
+import { styled } from '..'
 
 export const CartButtonContainer = styled('button', {
   display: 'flex',
@@ -10,7 +10,7 @@ export const CartButtonContainer = styled('button', {
 
   '&:disabled': {
     opacity: 0.6,
-    cursor: 'not-allowed'
+    cursor: 'not-allowed',
   },
 
   cursor: 'pointer',
@@ -28,7 +28,7 @@ export const CartButtonContainer = styled('button', {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    border: '3px solid $gray900'
+    border: '3px solid $gray900',
   },
 
   variants: {
@@ -44,7 +44,7 @@ export const CartButtonContainer = styled('button', {
         '&:not(:disabled):hover': {
           backgroundColor: '$green300',
           transition: 'all 0.2s',
-        }
+        },
       },
     },
     size: {
@@ -53,7 +53,7 @@ export const CartButtonContainer = styled('button', {
         height: '3rem',
 
         svg: {
-          fontSize: 24
+          fontSize: 24,
         },
       },
       large: {
@@ -61,7 +61,7 @@ export const CartButtonContainer = styled('button', {
         height: '3.5rem',
 
         svg: {
-          fontSize: 32
+          fontSize: 32,
         },
       },
     },
@@ -69,6 +69,6 @@ export const CartButtonContainer = styled('button', {
 
   defaultVariants: {
     color: 'gray',
-    size: 'medium'
-  }
+    size: 'medium',
+  },
 })

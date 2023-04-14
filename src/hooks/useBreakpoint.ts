@@ -5,7 +5,7 @@ export function useBreakpoint() {
 
   useLayoutEffect(() => {
     const mobileQuery = window.matchMedia('(max-width: 768px)')
-    const handleBreakpointChange = (event) => {
+    const handleBreakpointChange = (event: MediaQueryListEvent) => {
       setBreakpoint(event.matches ? 'mobile' : 'desktop')
     }
     mobileQuery.addEventListener('change', handleBreakpointChange)

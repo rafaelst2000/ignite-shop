@@ -8,6 +8,12 @@ export const ProductContainer = styled('main', {
 
   maxWidth: 1180,
   margin: '0 auto',
+
+  '@media(max-width: 768px)': {
+    gridTemplateColumns: '1fr',
+    gap: '1.5rem',
+    maxWidth: '100%',
+  },
 })
 
 export const ImageContainer = styled('div', {
@@ -24,6 +30,11 @@ export const ImageContainer = styled('div', {
 
   img: {
     objectFit: 'cover',
+  },
+
+  '@media(max-width: 768px)': {
+    height: 'auto',
+    maxWidth: '100%',
   },
 })
 
@@ -69,6 +80,20 @@ export const ProductDetails = styled('div', {
     '&:disabled': {
       opacity: 0.6,
       cursor: 'not-allowed',
+    },
+  },
+
+  '@media(max-width: 768px)': {
+    h1: {
+      fontSize: '$xl',
+    },
+
+    span: {
+      fontSize: '$xl',
+    },
+
+    p: {
+      marginBottom: '2.5rem',
     },
   },
 })

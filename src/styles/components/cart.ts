@@ -14,6 +14,10 @@ export const CartContent = styled(Dialog.Content, {
   display: 'flex',
   flexDirection: 'column',
 
+  '@media(max-width: 768px)': {
+    width: 'calc(100% - 2rem)',
+  },
+
   h2: {
     fontSize: '$lg',
     color: '$gray100',

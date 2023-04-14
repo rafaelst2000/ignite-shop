@@ -12,12 +12,14 @@ import Head from 'next/head'
 
 import { useCart } from '@/hooks/useCart'
 import { IProduct } from '@/contexts/cartContext'
+import { useBreakpoint } from '@/hooks/useBreakpoint'
 
 interface ProductProps {
   product: IProduct
 }
 
 export default function Product({ product }: ProductProps) {
+  const breakpoint = useBreakpoint()
   const { addToCart, checkIfItemAlredyExists } = useCart()
   const isAlredyInCart = checkIfItemAlredyExists(product.id)
 
@@ -28,7 +30,12 @@ export default function Product({ product }: ProductProps) {
       </Head>
       <ProductContainer>
         <ImageContainer>
-          <Image src={product.imageUrl} alt="" width={520} height={480} />
+          <Image
+            src={product.imageUrl}
+            alt=""
+            width={breakpoint === 'mobile' ? 320 : 520}
+            height={breakpoint === 'mobile' ? 280 : 480}
+          />
         </ImageContainer>
 
         <ProductDetails>

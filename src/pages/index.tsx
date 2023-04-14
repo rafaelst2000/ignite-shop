@@ -11,16 +11,17 @@ import { CartButton } from '@/components/CartButton'
 import { useCart } from '@/hooks/useCart'
 import { IProduct } from '@/contexts/cartContext'
 import { MouseEvent } from 'react'
-
+import { useBreakpoint } from '@/hooks/useBreakpoint'
 interface HomeProps {
   products: IProduct[]
 }
 
 export default function Home({ products }: HomeProps) {
+  const breakpoint = useBreakpoint()
   const [sliderRef] = useKeenSlider({
     slides: {
-      perView: 3,
-      spacing: 48,
+      perView: breakpoint === 'desktop' ? 3 : 1.2,
+      spacing: breakpoint === 'desktop' ? 48 : 12,
     },
   })
   const { addToCart, checkIfItemAlredyExists } = useCart()

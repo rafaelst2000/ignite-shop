@@ -31,5 +31,10 @@ export const {
       xl: '1.5rem',
       '2xl': '2rem',
     },
+
+    media: {
+      mobile: 'max-width: 768px',
+      desktop: 'min-width: 769px',
+    },
   },
 })

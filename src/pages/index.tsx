@@ -7,14 +7,13 @@ import Stripe from "stripe"
 import Image from "next/image"
 import Head from 'next/head'
 import 'keen-slider/keen-slider.min.css'
+import { CartButton } from "@/components/CartButton"
+import { useCart } from "@/hooks/useCart"
+import { IProduct } from "@/contexts/cartContext"
+import { MouseEvent } from "react"
 
 interface HomeProps {
-  products: {
-    id: string
-    name: string
-    imageUrl: string
-    price: string
-  }[]
+  products: IProduct[]
 }
 
 export default function Home({ products }: HomeProps) {
@@ -24,6 +23,12 @@ export default function Home({ products }: HomeProps) {
       spacing: 48,
     }
   })
+  const { addToCart, checkIfItemAlredyExists } = useCart()
+
+  function handleAddToCart(event: MouseEvent<HTMLButtonElement>, product: IProduct) {
+    event.preventDefault()
+    addToCart(product)
+  }
 
   return (
     <>
@@ -38,8 +43,11 @@ export default function Home({ products }: HomeProps) {
                   <Image src={product.imageUrl} width={520} height={480} alt="" />
 
                   <footer>
-                    <strong>{product.name}</strong>
-                    <span>{product.price}</span>
+                    <div>
+                      <strong>{product.name}</strong>
+                      <span>{product.price}</span>
+                    </div>
+                    <CartButton disabled={checkIfItemAlredyExists(product.id)} color="green" size="large" onClick={(event) => handleAddToCart(event, product) }/>
                   </footer>
                 </Product>
               </Link>
@@ -65,7 +73,9 @@ export const getStaticProps: GetStaticProps = async () => {
       price: new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL',
-      }).format(Number(price.unit_amount) / 100)
+      }).format(Number(price.unit_amount) / 100),
+      numberPrice: (Number(price.unit_amount) / 100),
+      defaultPriceId: price.id
     }
   })
 
